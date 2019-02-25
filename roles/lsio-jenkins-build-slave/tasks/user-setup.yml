@@ -3,4 +3,5 @@
 - name: create jenkins user
   user:
     name: "{{ jenkins_default_user }}"
+    shell: "/bin/bash"
     state: present

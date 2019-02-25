@@ -2,13 +2,27 @@
 
 - name: install multi arch systemd service
   copy:
-    src: etc/samba/smb.conf
-    dest: /etc/samba/smb.conf
+    src: multiarch.service
+    dest: /lib/systemd/system/multiarch.service
     owner: root
     group: root
   notify:
     - restart docker
     - start and enable multiarch service
+
+- name: create .docker dir
+  file:
+    path: "/home/{{ jenkins_default_user }}/.docker"
+    state: directory
+
+- name: ensure .docker/config.json file exists (force=no means only creates if does not exist)
+  copy:
+    content: ""
+    dest: "/home/{{ jenkins_default_user }}/.docker/config.json"
+    force: no
+    group: "{{ jenkins_default_user }}"
+    owner: "{{ jenkins_default_user }}"
+    mode: 0775
 
 - name: Insert a line at the end of a file.
   lineinfile:

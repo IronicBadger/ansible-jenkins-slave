@@ -13,3 +13,7 @@
 - name: ssh-keys
   include: ssh-keys.yml
   when: manage_keys
+
+- name: reboot
+  reboot:
+  when: reboot
