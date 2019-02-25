@@ -11,7 +11,7 @@ debian_packages:
   - default-jre
 hostname: lsio-build-slave
 jenkins_default_user: jenkins
-manage_keys: True
+manage_keys: False
 
 linuxserver_ci_name: "LinuxServer-CI"
 linuxserver_ci_email: "ci@linuxserver.io"
