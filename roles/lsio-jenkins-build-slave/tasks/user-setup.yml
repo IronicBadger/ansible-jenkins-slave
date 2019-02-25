@@ -1,0 +1,15 @@
+---
+
+- name: create jenkins user
+  user:
+    name: "{{ jenkins_default_user }}"
+    state: present
+
+- name: add jenkins master ssh key
+  authorized_key:
+    user: "{{ jenkins_default_user }}"
+    key: ""
+    state: present
+    exclusive: True
+  with_file:
+    - public_key/ci

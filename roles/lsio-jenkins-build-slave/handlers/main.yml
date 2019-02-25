@@ -1,0 +1,12 @@
+---
+
+- name: restart docker service
+  service:
+    name: docker
+    state: restarted
+
+- name: start and enable multiarch service
+  service:
+    name: multiarch
+    state: started
+    enabled: true

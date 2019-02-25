@@ -1,0 +1,14 @@
+---
+
+- name: user setup
+  include: user-setup.yml
+
+- name: initial slave setup
+  include: initial-setup.yml
+
+- name: docker multiarch setup
+  include: docker-multiarch.yml
+
+- name: ssh-keys
+  include: ssh-keys.yml
+  when: manage_keys

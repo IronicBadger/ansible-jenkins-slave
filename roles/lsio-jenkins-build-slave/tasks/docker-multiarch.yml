@@ -1,0 +1,12 @@
+---
+
+- name: install multi arch systemd service
+  - name: install samba config
+  copy:
+    src: etc/samba/smb.conf
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+  notify:
+    - restart docker
+    - start and enable multiarch service
