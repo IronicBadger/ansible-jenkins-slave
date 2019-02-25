@@ -1,5 +1,5 @@
-slave:
+configure:
 	ansible-playbook -i hosts -u alex -b slave.yml
 
-force-reqs:
+install-reqs:
 	ansible-galaxy install -r requirements.yml  --force

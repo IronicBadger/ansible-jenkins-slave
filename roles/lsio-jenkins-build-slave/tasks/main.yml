@@ -9,6 +9,7 @@
 - name: docker multiarch setup
   include: docker-multiarch.yml
 
+# only runs when defaults manage_keys is set to true
 - name: ssh-keys
   include: ssh-keys.yml
   when: manage_keys

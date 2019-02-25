@@ -9,3 +9,8 @@
   notify:
     - restart docker
     - start and enable multiarch service
+
+- name: Insert a line at the end of a file.
+  lineinfile:
+    path: "/home/{{ jenkins_default_user }}/.docker/config.json"
+    line: "echo '{\"experimental\": \"enabled\"}'"

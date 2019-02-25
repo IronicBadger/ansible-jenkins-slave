@@ -14,3 +14,15 @@
 - name: set hostname for slave
   hostname:
     name: "{{ hostname }}"
+
+- name: configure git user name
+  git_config:
+    name: alias.name
+    value: "{{ linuxserver_ci_name }}"
+    scope: global
+
+- name: configure git user email
+  git_config:
+    name: user.email
+    value: "{{ linuxserver_ci_email }}"
+    scope: global

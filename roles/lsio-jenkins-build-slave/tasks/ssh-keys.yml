@@ -1,0 +1,10 @@
+---
+
+- name: add jenkins master ssh key
+  authorized_key:
+    user: "{{ jenkins_default_user }}"
+    key: "something"
+    state: present
+    exclusive: True
+  with_file:
+    - public_key/ci
